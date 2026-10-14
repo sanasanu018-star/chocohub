@@ -1,0 +1,1998 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Choco Hub — handcrafted homemade chocolates for every special occasion.">
+  <meta name="theme-color" content="#3B2118">
+  <title>Choco Hub | Handmade with Love</title>
+
+  <!-- Google Fonts and Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --brown: #3B2118;
+      --brown-deep: #24130e;
+      --brown-soft: #59382b;
+      --cream: #FFF5E8;
+      --gold: #D6A15D;
+      --gold-light: #f1cc91;
+      --white: #fff;
+      --muted: #76665d;
+      --shadow: 0 16px 45px rgba(59,33,24,.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--brown);
+      background: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 44px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #9b6a32;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: .75rem;
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      line-height: 1.18;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      margin-bottom: 14px;
+    }
+
+    .section-heading p,
+    .muted {
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .25s ease, background .25s ease,
+                  box-shadow .25s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(25,13,8,.16);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--brown-deep);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
+
+    .btn-dark {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: var(--brown-soft);
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,.65);
+      color: var(--white);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.12);
+    }
+
+    /* Announcement bar */
+    .announcement {
+      background: var(--brown-deep);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: .8rem;
+      letter-spacing: .4px;
+    }
+
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,245,232,.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(59,33,24,.08);
+    }
+
+    .nav-wrap {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: var(--gold-light);
+      background: var(--brown);
+    }
+
+    .logo span:last-child {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 26px);
+      list-style: none;
+    }
+
+    .nav-links a:not(.btn) {
+      font-size: .88rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: #a66d2e;
+    }
+
+    .nav-order {
+      padding: 10px 18px;
+      font-size: .86rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--brown);
+      font-size: 1.4rem;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .mobile-order {
+      display: none !important;
+    }
+
+    /* Hero section */
+    .hero {
+      min-height: 680px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      isolation: isolate;
+      overflow: hidden;
+      background: var(--brown) url("https://images.unsplash.com/photo-1548907040-4d42cfc2f8b4?auto=format&fit=crop&w=2000&q=85") center/cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        90deg,
+        rgba(36,19,14,.96) 0%,
+        rgba(36,19,14,.82) 44%,
+        rgba(36,19,14,.24) 100%
+      );
+    }
+
+    .hero-content {
+      max-width: 680px;
+      padding: 100px 0 110px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 6.7vw, 5.65rem);
+      letter-spacing: -1.8px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    .hero p {
+      max-width: 570px;
+      color: rgba(255,255,255,.83);
+      font-size: 1.03rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 34px;
+      color: rgba(255,255,255,.78);
+      font-size: .82rem;
+    }
+
+    .hero-note i {
+      color: var(--gold-light);
+    }
+
+    .floating-choco {
+      position: absolute;
+      color: rgba(241,204,145,.35);
+      font-size: 2.3rem;
+      animation: float 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .float-one {
+      top: 19%;
+      right: 13%;
+    }
+
+    .float-two {
+      top: 63%;
+      right: 8%;
+      animation-delay: -2s;
+      font-size: 1.5rem;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(-14px) rotate(8deg); }
+    }
+
+    /* Why choose us */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      padding: 30px 22px;
+      border-radius: var(--radius);
+      background: #fffaf4;
+      border: 1px solid #f0dfca;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .icon-circle {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: #f3e0c5;
+      color: #8a5629;
+      font-size: 1.35rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.28rem;
+      margin-bottom: 9px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* Products */
+    .products-section {
+      background: #f8ecdc;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: #fffaf4;
+      border: 1px solid #efe0cd;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(59,33,24,.05);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      height: 230px;
+      overflow: hidden;
+      position: relative;
+      background: #e8d4bd;
+    }
+
+    .product-image img {
+      height: 100%;
+      transition: transform .6s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.06);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--cream);
+      color: var(--brown);
+      border-radius: 999px;
+      padding: 5px 11px;
+      font-size: .7rem;
+      font-weight: 700;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      font-size: 1.28rem;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: var(--muted);
+      font-size: .83rem;
+      min-height: 56px;
+    }
+
+    .stars {
+      color: #c78a36;
+      font-size: .86rem;
+      letter-spacing: 1px;
+      margin: 12px 0;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    .price small {
+      display: block;
+      color: var(--muted);
+      font-size: .67rem;
+      font-weight: 400;
+    }
+
+    .product-bottom .btn {
+      padding: 10px 14px;
+      font-size: .8rem;
+    }
+
+    /* About section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: clamp(35px, 7vw, 85px);
+    }
+
+    .about-image-wrap {
+      position: relative;
+      padding: 0 22px 22px 0;
+    }
+
+    .about-image-wrap::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      bottom: 0;
+      width: 70%;
+      height: 70%;
+      border-radius: 26px;
+      background: var(--gold);
+    }
+
+    .about-image {
+      height: 480px;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-copy h2 {
+      margin-bottom: 20px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .about-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin: 24px 0 28px;
+    }
+
+    .about-points span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .87rem;
+      font-weight: 600;
+    }
+
+    .about-points i {
+      color: #9b6a32;
+    }
+
+    /* Special occasions */
+    .occasions-section {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .occasions-section .section-heading p {
+      color: rgba(255,255,255,.7);
+    }
+
+    .occasions-section .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .occasion-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .occasion-card {
+      position: relative;
+      height: 265px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #6d4a38;
+    }
+
+    .occasion-card img {
+      height: 100%;
+      transition: transform .5s;
+    }
+
+    .occasion-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .occasion-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(25,12,8,.9), transparent 68%);
+    }
+
+    .occasion-card h3 {
+      position: absolute;
+      z-index: 1;
+      left: 16px;
+      right: 12px;
+      bottom: 17px;
+      font-size: 1.18rem;
+    }
+
+    .occasion-cta {
+      text-align: center;
+      margin-top: 34px;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .testimonial-card {
+      background: #fffaf4;
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid #efe0cd;
+    }
+
+    .quote-icon {
+      font-size: 1.7rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .testimonial-card blockquote {
+      color: #5f5047;
+      font-size: .93rem;
+      margin-bottom: 20px;
+    }
+
+    .customer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      background: #e7c99f;
+      display: grid;
+      place-items: center;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .customer strong {
+      display: block;
+      font-size: .9rem;
+    }
+
+    .customer small {
+      color: var(--muted);
+      font-size: .73rem;
+    }
+
+    /* Promotional banner */
+    .offer-section {
+      padding: 15px 0 85px;
+    }
+
+    .offer-banner {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: clamp(35px, 6vw, 65px);
+      background:
+        linear-gradient(105deg, rgba(36,19,14,.96), rgba(59,33,24,.77)),
+        url("https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1600&q=85") center/cover;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .offer-copy {
+      max-width: 650px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .offer-copy h2 {
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .offer-copy p {
+      color: rgba(255,255,255,.8);
+    }
+
+    .offer-banner .btn {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    /* Contact and order form */
+    .contact-section {
+      background: #f7ead9;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .contact-panel {
+      background: var(--brown);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 34px;
+    }
+
+    .contact-panel h3 {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-panel > p {
+      color: rgba(255,255,255,.73);
+      margin-bottom: 26px;
+      font-size: .92rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 13px;
+      margin: 22px 0;
+      align-items: flex-start;
+    }
+
+    .contact-item i {
+      color: var(--gold-light);
+      margin-top: 5px;
+      width: 18px;
+    }
+
+    .contact-item small {
+      display: block;
+      color: rgba(255,255,255,.65);
+    }
+
+    .whatsapp-btn {
+      width: 100%;
+      margin-top: 16px;
+      background: #25d366;
+      color: #103a21;
+    }
+
+    .whatsapp-btn:hover {
+      background: #58e58a;
+    }
+
+    .order-form {
+      background: #fffaf4;
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 38px);
+      box-shadow: 0 10px 35px rgba(59,33,24,.06);
+    }
+
+    .order-form h3 {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+
+    .form-intro {
+      color: var(--muted);
+      font-size: .86rem;
+      margin-bottom: 25px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: .81rem;
+      font-weight: 600;
+    }
+
+    .field input,
+    .field select,
+    .field textarea,
+    .newsletter-form input {
+      width: 100%;
+      border: 1px solid #e4d2be;
+      border-radius: 11px;
+      padding: 12px 13px;
+      background: #fff;
+      color: var(--brown);
+      transition: border .2s, box-shadow .2s;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus,
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: #b98242;
+      box-shadow: 0 0 0 3px rgba(214,161,93,.2);
+    }
+
+    .field textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #a09287;
+    }
+
+    .form-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .form-status {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-top: 15px;
+      font-size: .85rem;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    .form-status.error {
+      color: #8a241f;
+      background: #ffebe8;
+    }
+
+    .form-status.success {
+      color: #285d36;
+      background: #e9f7eb;
+    }
+
+    /* Newsletter */
+    .newsletter {
+      padding: 65px 0;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    .newsletter p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .newsletter-form {
+      max-width: 520px;
+      display: flex;
+      gap: 10px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      border-radius: 999px;
+      padding: 14px 18px;
+    }
+
+    .newsletter-form .btn {
+      white-space: nowrap;
+    }
+
+    .newsletter-note {
+      font-size: .75rem;
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--brown-deep);
+      color: var(--white);
+      padding: 60px 0 22px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr 1fr 1fr;
+      gap: 35px;
+      padding-bottom: 38px;
+    }
+
+    .footer-brand p {
+      max-width: 310px;
+      color: rgba(255,255,255,.65);
+      font-size: .86rem;
+      margin-top: 18px;
+    }
+
+    .footer-col h3 {
+      font-family: "Poppins", sans-serif;
+      font-size: .95rem;
+      margin-bottom: 18px;
+      color: var(--gold-light);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin: 10px 0;
+      color: rgba(255,255,255,.72);
+      font-size: .84rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold-light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      width: 39px;
+      height: 39px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      transition: background .2s, color .2s;
+    }
+
+    .social-links a:hover {
+      background: var(--gold);
+      color: var(--brown-deep);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.13);
+      padding-top: 20px;
+      color: rgba(255,255,255,.55);
+      font-size: .77rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 500;
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--brown-deep);
+      background: var(--gold);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: .25s;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Scroll reveal animation */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .js .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .js .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Tablet */
+    @media (max-width: 1000px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a:not(.btn) {
+        font-size: .8rem;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .occasion-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .occasion-card {
+        height: 240px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 30px, 600px);
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .nav-wrap {
+        min-height: 70px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-order {
+        display: none;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 28px 25px 45px;
+        background: var(--cream);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        overflow-y: auto;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform .28s ease, visibility .28s;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+        visibility: visible;
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid #ead9c6;
+      }
+
+      .nav-links a:not(.btn) {
+        display: block;
+        padding: 16px 4px;
+        font-size: 1rem;
+      }
+
+      .nav-links .mobile-order {
+        display: inline-flex !important;
+        margin-top: 20px;
+      }
+
+      .hero {
+        min-height: 620px;
+        background-position: 62% center;
+      }
+
+      .hero::before {
+        background: linear-gradient(
+          90deg,
+          rgba(36,19,14,.95),
+          rgba(36,19,14,.7)
+        );
+      }
+
+      .hero-content {
+        padding: 85px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 12vw, 4.2rem);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        height: 380px;
+      }
+
+      .occasion-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .occasion-card {
+        height: 230px;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .offer-banner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-grid {
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .announcement {
+        font-size: .72rem;
+      }
+
+      .logo {
+        font-size: 1.35rem;
+      }
+
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .features-grid,
+      .product-grid,
+      .occasion-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 255px;
+      }
+
+      .occasion-card {
+        height: 270px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form .btn {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+</head>
+
+<body>
+  <!-- Announcement bar -->
+  <div class="announcement">
+    🍫 Handmade with Love | Special Chocolates for Every Occasion
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="container nav-wrap" aria-label="Main navigation">
+      <a class="logo" href="#home" aria-label="Choco Hub home">
+        <span class="logo-mark">
+          <i class="fa-solid fa-cookie-bite" aria-hidden="true"></i>
+        </span>
+        <span>Choco <span>Hub</span></span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Our Chocolates</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#occasions">Custom Orders</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a class="btn btn-primary mobile-order" href="#contact">
+            Order Now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+
+      <a class="btn btn-primary nav-order" href="#contact">
+        Order Now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <span class="floating-choco float-one" aria-hidden="true">
+        <i class="fa-solid fa-cookie-bite"></i>
+      </span>
+      <span class="floating-choco float-two" aria-hidden="true">
+        <i class="fa-solid fa-heart"></i>
+      </span>
+
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Small batches. Big happiness.</span>
+          <h1 id="hero-title">Life Is Better<br>with <em>Chocolate.</em></h1>
+          <p>
+            Discover the magic of handcrafted chocolates, made with love,
+            premium ingredients, and a little sprinkle of happiness.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#products">
+              Explore Our Chocolates
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-outline" href="#contact">
+              Order Your Sweet Moments
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            Handcrafted with Love, Melted with Happiness.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why choose us -->
+    <section class="section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">The Choco Hub difference</span>
+          <h2 id="why-title">A Little Extra Love in Every Bite</h2>
+          <p>Thoughtfully made chocolates for life's sweetest moments.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card reveal">
+            <div class="icon-circle"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+            <h3>Handmade with Love</h3>
+            <p>Every batch is made with care, creativity, and a whole lot of heart.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="icon-circle"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
+            <h3>Quality Ingredients</h3>
+            <p>Delicious flavours begin with carefully chosen ingredients and attention to detail.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="icon-circle"><i class="fa-solid fa-clock" aria-hidden="true"></i></div>
+            <h3>Freshly Prepared</h3>
+            <p>Small-batch preparation keeps every chocolate special and celebration-ready.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="icon-circle"><i class="fa-solid fa-gift" aria-hidden="true"></i></div>
+            <h3>Perfect for Gifting</h3>
+            <p>Sweet little surprises for birthdays, weddings, festivals, and just-because days.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bestselling chocolates -->
+    <section class="section products-section" id="products" aria-labelledby="products-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Made to make you smile</span>
+          <h2 id="products-title">Our Bestselling Chocolates</h2>
+          <p>Prices are editable placeholders. Update them before publishing.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card reveal">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1548907040-4d42cfc2f8b4?auto=format&fit=crop&w=900&q=80"
+                alt="Artisan milk chocolate pieces"
+                loading="lazy">
+              <span class="product-tag">Customer favourite</span>
+            </div>
+            <div class="product-info">
+              <h3>Classic Milk Chocolate</h3>
+              <p>Silky, creamy chocolate with a comforting, melt-in-your-mouth finish.</p>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="product-bottom">
+                <div class="price">₹199 <small>Placeholder price</small></div>
+                <button class="btn btn-dark order-product" data-product="Classic Milk Chocolate">Order Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=80"
+                alt="Rich dark chocolate pieces"
+                loading="lazy">
+              <span class="product-tag">Rich &amp; bold</span>
+            </div>
+            <div class="product-info">
+              <h3>Rich Dark Chocolate</h3>
+              <p>Deep cocoa flavour for chocolate lovers who enjoy a more intense bite.</p>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="product-bottom">
+                <div class="price">₹249 <small>Placeholder price</small></div>
+                <button class="btn btn-dark order-product" data-product="Rich Dark Chocolate">Order Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?auto=format&fit=crop&w=900&q=80"
+                alt="Creamy white chocolate confectionery"
+                loading="lazy">
+              <span class="product-tag">Smooth &amp; sweet</span>
+            </div>
+            <div class="product-info">
+              <h3>Creamy White Chocolate</h3>
+              <p>A velvety, sweet treat with a delicate flavour and creamy texture.</p>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="product-bottom">
+                <div class="price">₹229 <small>Placeholder price</small></div>
+                <button class="btn btn-dark order-product" data-product="Creamy White Chocolate">Order Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=900&q=80"
+                alt="Elegant assorted chocolate gift box"
+                loading="lazy">
+              <span class="product-tag">Gift-ready</span>
+            </div>
+            <div class="product-info">
+              <h3>Premium Chocolate Gift Box</h3>
+              <p>A thoughtful assortment, beautifully presented for your favourite people.</p>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="product-bottom">
+                <div class="price">₹599 <small>Placeholder price</small></div>
+                <button class="btn btn-dark order-product" data-product="Premium Chocolate Gift Box">Order Now</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About us -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-image-wrap reveal">
+          <img
+            class="about-image"
+            src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1100&q=85"
+            alt="Handcrafted chocolates arranged in a gift box"
+            loading="lazy">
+        </div>
+
+        <div class="about-copy reveal">
+          <span class="eyebrow">Our sweet little story</span>
+          <h2 id="about-title">A Little Chocolate,<br>A Lot of Happiness.</h2>
+          <p>
+            At Choco Hub, every chocolate tells a story of love, creativity,
+            and happiness. Our homemade chocolates are carefully crafted in
+            small batches to bring you delightful flavours and memorable moments.
+          </p>
+          <p>
+            From a tiny thank-you gift to a big celebration, we believe the
+            sweetest gifts are the ones made with thought and care.
+          </p>
+
+          <div class="about-points">
+            <span><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Small-batch care</span>
+            <span><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Made for sharing</span>
+            <span><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Personalised gifting</span>
+          </div>
+
+          <a class="btn btn-dark" href="#occasions">
+            Discover Our Story
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special occasions -->
+    <section class="section occasions-section" id="occasions" aria-labelledby="occasions-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Make it personal</span>
+          <h2 id="occasions-title">A Sweet Gift for Every Occasion</h2>
+          <p>Celebrate the people you love with thoughtful chocolate gifts, made just for the moment.</p>
+        </div>
+
+        <div class="occasion-grid">
+          <article class="occasion-card reveal">
+            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=650&q=80" alt="Birthday cake and celebration" loading="lazy">
+            <h3>Birthday Surprises</h3>
+          </article>
+
+          <article class="occasion-card reveal">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=650&q=80" alt="Elegant wedding celebration" loading="lazy">
+            <h3>Wedding Favours</h3>
+          </article>
+
+          <article class="occasion-card reveal">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=650&q=80" alt="Romantic anniversary flowers" loading="lazy">
+            <h3>Anniversary Gifts</h3>
+          </article>
+
+          <article class="occasion-card reveal">
+            <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=650&q=80" alt="Wrapped festival gift" loading="lazy">
+            <h3>Festival Hampers</h3>
+          </article>
+
+          <article class="occasion-card reveal">
+            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=650&q=80" alt="Premium gift box with ribbon" loading="lazy">
+            <h3>Corporate Gifts</h3>
+          </article>
+        </div>
+
+        <div class="occasion-cta reveal">
+          <a class="btn btn-primary" href="#contact">
+            Create Your Gift Box
+            <i class="fa-solid fa-gift" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sample testimonials: replace with real customer reviews -->
+    <section class="section" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Kind words, sweet moments</span>
+          <h2 id="reviews-title">Love From Our Chocolate Community</h2>
+          <p>Sample testimonials for demonstration. Replace with genuine customer reviews before launch.</p>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card reveal">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></div>
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              “The chocolates were beautifully packed and tasted amazing.
+              Such a lovely gift for my friend's birthday!”
+            </blockquote>
+            <div class="customer">
+              <div class="avatar" aria-hidden="true">A</div>
+              <div><strong>Sample Customer A</strong><small>Birthday order · Placeholder review</small></div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></div>
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              “The gift box looked so elegant, and the personal touch made
+              the occasion feel extra special.”
+            </blockquote>
+            <div class="customer">
+              <div class="avatar" aria-hidden="true">M</div>
+              <div><strong>Sample Customer B</strong><small>Gift box · Placeholder review</small></div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></div>
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              “A delicious treat and a very thoughtful presentation.
+              I would happily order a custom hamper again.”
+            </blockquote>
+            <div class="customer">
+              <div class="avatar" aria-hidden="true">R</div>
+              <div><strong>Sample Customer C</strong><small>Custom hamper · Placeholder review</small></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special offer -->
+    <section class="offer-section">
+      <div class="container">
+        <div class="offer-banner reveal">
+          <div class="offer-copy">
+            <span class="eyebrow">A little sweetness goes a long way</span>
+            <h2>Make Every Moment Sweeter!</h2>
+            <p>Surprise someone special with our handcrafted chocolates. Create a gift that feels as wonderful as it tastes.</p>
+          </div>
+          <a class="btn btn-primary" href="#products">
+            Shop Our Collection
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact and order form -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Let's make something sweet</span>
+          <h2 id="contact-title">Place Your Chocolate Order</h2>
+          <p>Tell us what you're dreaming of. We'll help you plan a delicious treat or a thoughtful gift.</p>
+        </div>
+
+        <div class="contact-grid">
+          <aside class="contact-panel reveal">
+            <h3>Let's Talk Chocolate</h3>
+            <p>
+              Have a question or want a custom gift box? Update the placeholder
+              contact details below for your real business.
+            </p>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <div><strong>Call us</strong><small>+91 00000 00000 (update this)</small></div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <div><strong>Email</strong><small>hello@your-chocohub.com (update this)</small></div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <div><strong>Location</strong><small>Your town, Kerala, India (update this)</small></div>
+            </div>
+
+            <a class="btn whatsapp-btn" id="whatsappQuick"
+               href="https://wa.me/910000000000"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              Chat on WhatsApp
+            </a>
+          </aside>
+
+          <form class="order-form" id="orderForm" novalidate>
+            <h3>Order Request</h3>
+            <p class="form-intro">
+              Fields marked * are required. This demo validates the form
+              but does not send or save orders.
+            </p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="customerName">Your name *</label>
+                <input id="customerName" name="name" autocomplete="name"
+                       required minlength="2" placeholder="Enter your name">
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone number *</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel"
+                       required inputmode="tel" pattern="[0-9+() -]{7,20}"
+                       placeholder="+91 98765 43210">
+              </div>
+
+              <div class="field">
+                <label for="email">Email address *</label>
+                <input id="email" name="email" type="email"
+                       autocomplete="email" required placeholder="you@example.com">
+              </div>
+
+              <div class="field">
+                <label for="product">Choose chocolate *</label>
+                <select id="product" name="product" required>
+                  <option value="">Select a product</option>
+                  <option>Classic Milk Chocolate</option>
+                  <option>Rich Dark Chocolate</option>
+                  <option>Creamy White Chocolate</option>
+                  <option>Premium Chocolate Gift Box</option>
+                  <option>Custom Gift Box / Hamper</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="quantity">Quantity *</label>
+                <input id="quantity" name="quantity" type="number"
+                       min="1" max="500" step="1" required value="1">
+              </div>
+
+              <div class="field">
+                <label for="occasion">Occasion (optional)</label>
+                <select id="occasion" name="occasion">
+                  <option value="">Choose an occasion</option>
+                  <option>Birthday</option>
+                  <option>Wedding</option>
+                  <option>Anniversary</option>
+                  <option>Festival</option>
+                  <option>Corporate gifting</option>
+                  <option>Just because</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="message">Message / customisation details</label>
+                <textarea id="message" name="message" maxlength="1000"
+                  placeholder="Tell us about flavours, packaging, delivery date, or a personal message..."></textarea>
+              </div>
+
+              <div class="field full">
+                <button class="btn btn-dark" type="submit">
+                  Submit Order Request
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <p class="form-note">
+              Demo only: connect a backend or form service to receive real
+              submissions. Use WhatsApp for enquiries after updating the number.
+            </p>
+            <div class="form-status" id="orderStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <div class="container reveal">
+        <span class="eyebrow">Stay in the sweet loop</span>
+        <h2 id="newsletter-title">Sweet Updates, Straight to Your Inbox.</h2>
+        <p>Hear about new flavours, gift collections, and special treats.</p>
+
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <label for="newsletterEmail" style="position:absolute;left:-9999px">
+            Email address
+          </label>
+          <input id="newsletterEmail" name="newsletterEmail" type="email"
+                 required placeholder="Enter your email address">
+          <button class="btn btn-primary" type="submit">
+            Subscribe <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </button>
+        </form>
+
+        <p class="newsletter-note">
+          This demo does not store email addresses. Actual subscriptions require
+          a backend or email marketing integration.
+        </p>
+
+        <div class="form-status" id="newsletterStatus"
+             role="status" aria-live="polite"
+             style="max-width:520px;margin:12px auto 0;text-align:left"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#home">
+            <span class="logo-mark">
+              <i class="fa-solid fa-cookie-bite" aria-hidden="true"></i>
+            </span>
+            <span>Choco <span>Hub</span></span>
+          </a>
+
+          <p>
+            Handcrafted with Love, Melted with Happiness. Homemade chocolates
+            for thoughtful gifts, celebrations, and everyday joy.
+          </p>
+
+          <div class="social-links">
+            <a href="https://www.instagram.com/" target="_blank"
+               rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank"
+               rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a id="footerWhatsApp" href="https://wa.me/910000000000"
+               target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Our Chocolates</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#occasions">Custom Orders</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Get in Touch</h3>
+          <ul>
+            <li><a href="tel:+910000000000">+91 00000 00000</a></li>
+            <li><a href="mailto:hello@your-chocohub.com">hello@your-chocohub.com</a></li>
+            <li>Your town, Kerala, India</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Our Promise</h3>
+          <ul>
+            <li>Made with care</li>
+            <li>Thoughtful gifting</li>
+            <li>Custom order enquiries</li>
+            <li>Sweet moments, always</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Choco Hub. All rights reserved.</span>
+        <span>
+          Made with
+          <i class="fa-solid fa-heart" style="color:var(--gold)" aria-hidden="true"></i>
+          and a little chocolate.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script>
+    // ============================================
+    // CHOCO HUB SETTINGS
+    // Replace the placeholder WhatsApp number with
+    // your country code and number, digits only.
+    // Example format for India: 919876543210
+    // ============================================
+    const WHATSAPP_NUMBER = "910000000000";
+
+    // Mobile navigation menu
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      menuToggle.innerHTML =
+        '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+        : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    // Configure WhatsApp buttons from one number.
+    const whatsappBase = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+    document.getElementById("whatsappQuick").href =
+      `${whatsappBase}?text=${encodeURIComponent(
+        "Hello Choco Hub! I'd like to enquire about chocolates."
+      )}`;
+
+    document.getElementById("footerWhatsApp").href = whatsappBase;
+
+    // Product buttons pre-select the chosen product in the order form.
+    document.querySelectorAll(".order-product").forEach(button => {
+      button.addEventListener("click", () => {
+        document.getElementById("product").value = button.dataset.product;
+
+        document.getElementById("contact").scrollIntoView({
+          behavior: "smooth"
+        });
+
+        window.setTimeout(() => {
+          document.getElementById("customerName").focus({
+            preventScroll: true
+          });
+        }, 450);
+      });
+    });
+
+    // Show an accessible status message.
+    function showStatus(element, message, type) {
+      element.textContent = message;
+      element.className = `form-status show ${type}`;
+    }
+
+    // Order form validation.
+    // This demo does not transmit or store customer information.
+    const orderForm = document.getElementById("orderForm");
+    const orderStatus = document.getElementById("orderStatus");
+
+    orderForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!orderForm.checkValidity()) {
+        orderForm.reportValidity();
+
+        showStatus(
+          orderStatus,
+          "Please check the highlighted fields and complete the required information.",
+          "error"
+        );
+
+        return;
+      }
+
+      const name = document.getElementById("customerName").value.trim();
+      const selectedProduct = document.getElementById("product").value;
+      const quantity = document.getElementById("quantity").value;
+
+      showStatus(
+        orderStatus,
+        `Thanks, ${name}! Your form is valid, but this demo has not sent or saved an order. To enquire on WhatsApp, use the green button and share: ${quantity} × ${selectedProduct}.`,
+        "success"
+      );
+    });
+
+    // Newsletter demo validation.
+    // Connect an email service to accept real subscriptions.
+    const newsletterForm = document.getElementById("newsletterForm");
+    const newsletterStatus = document.getElementById("newsletterStatus");
+
+    newsletterForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const emailInput = document.getElementById("newsletterEmail");
+
+      if (!emailInput.checkValidity()) {
+        emailInput.reportValidity();
+
+        showStatus(
+          newsletterStatus,
+          "Please enter a valid email address.",
+          "error"
+        );
+
+        return;
+      }
+
+      showStatus(
+        newsletterStatus,
+        "Your email looks valid, but you are not subscribed yet. Connect an email marketing service or backend to enable real subscriptions.",
+        "success"
+      );
+    });
+
+    // Reveal sections when they enter the viewport.
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if (
+      "IntersectionObserver" in window &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealItems.forEach(item => revealObserver.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add("is-visible"));
+    }
+
+    // Back-to-top button.
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", () => {
+      backTop.classList.toggle("visible", window.scrollY > 500);
+    }, { passive: true });
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    // Automatic copyright year.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
